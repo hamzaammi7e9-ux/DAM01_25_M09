@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio eventos</title>
+  <style>
+    #miCapa {
+      width: 200px;
+      height: 100px;
+      background-color: lightblue;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejercicio 2 - Eventos</h1>
+
+  <button id="miBoton">Pulsa aquí</button>
+
+  <div id="miCapa">Pasa el ratón por aquí</div>
+
+  <img id="miImagen" src="https://via.placeholder.com/150" alt="Imagen de ejemplo">
+
+  <input type="text" id="miTexto" placeholder="Escribe algo y pulsa Enter">
+
+  <script>
+    const boton = document.getElementById('miBoton');
+    const capa = document.getElementById('miCapa');
+    const imagen = document.getElementById('miImagen');
+    const texto = document.getElementById('miTexto');
+
+    boton.addEventListener('click', () => {
+      alert('Has hecho clic en el botón');
+    });
+
+    imagen.addEventListener('dblclick', () => {
+      alert('Has hecho DOBLE clic en la imagen');
+    });
+
+    function mostrarPosicion(evento) {
+      console.log('Posición X: ' + evento.clientX + ', Y: ' + evento.clientY);
+    }
+
+    capa.addEventListener('mousemove', mostrarPosicion);
+    imagen.addEventListener('mousemove', mostrarPosicion);
+
+    texto.addEventListener('keydown', (evento) => {
+      if (evento.key === 'Enter') {
+        alert('Has pulsado Enter en el campo de texto');
+      }
+    });
+  </script>
+</body>
+</html>
