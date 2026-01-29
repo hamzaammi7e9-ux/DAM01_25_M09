@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Space shooter</title>
+  <style>
+    body {
+      margin: 0;
+      height: 900px;
+    }
+
+    #escenario {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+    }
+
+    #cuadrado {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      bottom: 10%;
+      left: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="escenario">
+    <div id="cuadrado">
+    </div>
+  </div>
+
+  <script>
+    const escenario = document.getElementById('escenario');
+    const jugador = document.getElementById('cuadrado');
+    const bala = document.getElementById('bala')
+
+    escenario.addEventListener('mousemove', (event) => {
+      const espai = escenario.getBoundingClientRect();
+      let posicioX = event.clientX - espai.left;
+
+      if (posicioX < 0) posicioX = 0;
+
+      const limitEspai = espai.width - jugador.offsetWidth;
+
+      if (posicioX > limitEspai) posicioX = limitEspai;
+
+      jugador.style.left = posicioX + 'px';
+    });
+
+    escenario.addEventListener('click', (event) => {
+      const espai = escenario.getBoundingClientRect()
+
+      let bala = document.createElement('div')
+      escenario.appendChild(bala)
+
+      bala.style.position = 'absolute'
+      bala.style.width = '10px'
+      bala.style.height = '20px'
+      bala.style.backgroundColor = 'blue'
+
+      const rectJugador = jugador.getBoundingClientRect();
+      const rectEscenario = escenario.getBoundingClientRect();
+
+      const xInicial = rectJugador.left - rectEsc.left + rectJugador.width / 2 - 5;
+      const yInicial = rectEsc.height - (rectJugador.top - rectEsc.top) - 20;
+
+
+      bala.style.left = xInicial + 'px';
+      bala.style.bottom = yInicial + 'px';
+
+      let y = yInicial;
+
+      const intervalo = setInterval(() => {
+        y += 5; 
+        bala.style.bottom = y + 'px';
+
+        if (y > rectEsc.height) {
+          clearInterval(intervalo);
+          bala.remove();
+        }
+      }, 16); 
+    });
+  </script>
+</body>
+
+</html>
