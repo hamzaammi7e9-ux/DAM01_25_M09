@@ -144,18 +144,19 @@ const alumnosJSON = `[
 
  let alumnos = JSON.parse(alumnosJSON);
 
+ console.table(alumnos, [
+  "nombre",
+  "apellidos",
+  "dni",
+  "telefono",
+  "mail",
+  "notam2",
+  "notam3",
+  "notam4",
+  "notam5",
+  "notam6",
+  "notam9",
+  media
+]);
 
-console.log("NOMBRE\tAPELLIDOS\tDNI");
-console.log("--------------------------------");
-
-for (let i = 0; i < alumnos.length; i++) {
-    const alumno = alumnos[i];
-    console.log(
-      alumno.nombre + " " +
-      alumno.apellidos + " " +
-      alumno.dni +
-      "\t" 
-    );
-  } 
-   
 
