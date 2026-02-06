@@ -55,8 +55,6 @@ let tarjeta1 = new TarjetaCredito('123456789', '12/25', 123, 'Carlos Ruiz', 1500
 let tarjeta2 = new TarjetaCredito('987654321', '05/28', 456, 'Ana Gomez', 50, 'Santander', true, 7123);
 let tarjeta3 = new TarjetaCredito('112233445', '01/30', 789, 'Luis M.', 5000, 'CaixaBank', false, 2091);
 
-tarjeta2.activar();
-
 
 
 
