@@ -29,8 +29,6 @@ class Guerrero extends Personaje{
         this.fuerza = fuerza;
     }
 
-
-
     golpeEspada(){
 
     }
@@ -39,7 +37,6 @@ class Guerrero extends Personaje{
 
 class Mago extends Personaje{
     mana;
-
 
     constructor(nombre, nivel, puntosDeVida, mana){
         super(nombre, nivel, puntosDeVida)
